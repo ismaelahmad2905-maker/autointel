@@ -1,0 +1,80 @@
+category,make,model,year,part_name,avg_cost_gbp
+braking,Toyota,Corolla,2018,Front Brake Pads,45
+braking,Toyota,Corolla,2018,Rear Brake Pads,40
+braking,Toyota,Corolla,2018,Brake Discs (Front Pair),80
+cooling,Toyota,Corolla,2018,Thermostat,25
+cooling,Toyota,Corolla,2018,Radiator,120
+electrical,Toyota,Corolla,2018,Battery,95
+electrical,Toyota,Corolla,2018,Alternator,160
+engine,Toyota,Corolla,2018,Spark Plugs (Set),30
+engine,Toyota,Corolla,2018,Ignition Coil,55
+
+braking,Honda,Civic,2017,Front Brake Pads,50
+braking,Honda,Civic,2017,Brake Discs (Front Pair),90
+cooling,Honda,Civic,2017,Thermostat,28
+electrical,Honda,Civic,2017,Battery,100
+engine,Honda,Civic,2017,Spark Plugs (Set),35
+
+braking,Ford,Fiesta,2016,Front Brake Pads,42
+braking,Ford,Fiesta,2016,Brake Discs (Front Pair),75
+cooling,Ford,Fiesta,2016,Radiator,110
+electrical,Ford,Fiesta,2016,Alternator,150
+engine,Ford,Fiesta,2016,Ignition Coil,60
+
+braking,BMW,3 Series,2015,Front Brake Pads,75
+braking,BMW,3 Series,2015,Brake Discs (Front Pair),160
+cooling,BMW,3 Series,2015,Water Pump,95
+electrical,BMW,3 Series,2015,Battery,140
+engine,BMW,3 Series,2015,Spark Plugs (Set),55
+
+braking,Volkswagen,Golf,2018,Front Brake Pads,55
+braking,Volkswagen,Golf,2018,Brake Discs (Front Pair),105
+cooling,Volkswagen,Golf,2018,Thermostat,30
+electrical,Volkswagen,Golf,2018,Battery,110
+engine,Volkswagen,Golf,2018,Ignition Coil,65
+
+transmission,Toyota,Corolla,2018,Clutch Kit,180
+transmission,Toyota,Corolla,2018,Transmission Fluid (Service),55
+transmission,Toyota,Corolla,2018,Gear Linkage Bushings,35
+transmission,Toyota,Corolla,2018,Clutch Master Cylinder,70
+suspension,Toyota,Corolla,2018,Front Shock Absorber,95
+suspension,Toyota,Corolla,2018,Front Strut Top Mount,45
+suspension,Toyota,Corolla,2018,Front Lower Control Arm,110
+suspension,Toyota,Corolla,2018,Anti-Roll Bar Link,25
+
+transmission,Honda,Civic,2017,Clutch Kit,200
+transmission,Honda,Civic,2017,Transmission Fluid (Service),60
+transmission,Honda,Civic,2017,Gear Selector Cable,85
+transmission,Honda,Civic,2017,Clutch Slave Cylinder,55
+suspension,Honda,Civic,2017,Front Shock Absorber,105
+suspension,Honda,Civic,2017,Front Strut Top Mount,50
+suspension,Honda,Civic,2017,Front Lower Control Arm,120
+suspension,Honda,Civic,2017,Anti-Roll Bar Link,28
+
+transmission,Ford,Fiesta,2016,Clutch Kit,170
+transmission,Ford,Fiesta,2016,Transmission Fluid (Service),50
+transmission,Ford,Fiesta,2016,Gear Linkage Bushings,30
+transmission,Ford,Fiesta,2016,Clutch Master Cylinder,65
+suspension,Ford,Fiesta,2016,Front Shock Absorber,90
+suspension,Ford,Fiesta,2016,Front Strut Top Mount,42
+suspension,Ford,Fiesta,2016,Front Lower Control Arm,105
+suspension,Ford,Fiesta,2016,Anti-Roll Bar Link,22
+
+transmission,BMW,3 Series,2015,Automatic Transmission Fluid (Service),90
+transmission,BMW,3 Series,2015,Transmission Filter Kit,75
+transmission,BMW,3 Series,2015,Gear Selector Module,220
+transmission,BMW,3 Series,2015,Clutch Kit,320
+suspension,BMW,3 Series,2015,Front Shock Absorber,160
+suspension,BMW,3 Series,2015,Front Strut Top Mount,70
+suspension,BMW,3 Series,2015,Front Lower Control Arm,180
+suspension,BMW,3 Series,2015,Anti-Roll Bar Link,35
+
+transmission,Volkswagen,Golf,2018,Clutch Kit,210
+transmission,Volkswagen,Golf,2018,Transmission Fluid (Service),65
+transmission,Volkswagen,Golf,2018,Gear Selector Cable,95
+transmission,Volkswagen,Golf,2018,Clutch Slave Cylinder,60
+suspension,Volkswagen,Golf,2018,Front Shock Absorber,115
+suspension,Volkswagen,Golf,2018,Front Strut Top Mount,55
+suspension,Volkswagen,Golf,2018,Front Lower Control Arm,135
+suspension,Volkswagen,Golf,2018,Anti-Roll Bar Link,30
+

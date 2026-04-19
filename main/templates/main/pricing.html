@@ -1,0 +1,270 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - AutoIntel</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle at top left, rgba(0,190,255,0.18), transparent 30%),
+                        radial-gradient(circle at top right, rgba(0,150,255,0.14), transparent 30%),
+                        linear-gradient(180deg, #060a12 0%, #070b14 40%, #05070d 100%);
+            color: #e7eefc;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 0 60px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 55px;
+            min-height: 128px;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            min-width: 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .logo {
+            height: 170px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+            background: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-left: 10px;
+        }
+
+        .nav-links a {
+            color: #c9d5ea;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #00beff;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .chip {
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .login-btn {
+            padding: 12px 20px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #00beff, #0078ff);
+            color: #041018;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .page-header {
+            margin-bottom: 30px;
+        }
+
+        .page-header h1 {
+            margin: 0 0 12px;
+            font-size: 54px;
+            font-weight: 900;
+        }
+
+        .page-header p {
+            margin: 0;
+            color: #bfcadd;
+            font-size: 18px;
+            max-width: 760px;
+            line-height: 1.5;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 22px;
+            padding: 24px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 14px;
+            font-size: 28px;
+        }
+
+        .card p {
+            color: #d7e3f4;
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+
+        .card ul {
+            margin: 0;
+            padding-left: 18px;
+            color: #d7e3f4;
+            line-height: 1.6;
+        }
+
+        .full-width {
+            margin-top: 24px;
+        }
+
+        .highlight {
+            color: #00beff;
+            font-weight: bold;
+        }
+
+        @media (max-width: 1100px) {
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 18px;
+                min-height: unset;
+            }
+
+            .nav-left {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .nav-links {
+                margin-left: 0;
+            }
+
+            .logo {
+                height: 90px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 42px;
+            }
+
+            .logo {
+                height: 78px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <div class="nav-left">
+                <a href="{% url 'diagnose' %}" class="brand">
+                    <img src="{% static 'main/images/autointel-logo.png' %}" alt="AutoIntel Logo" class="logo">
+                </a>
+
+                <div class="nav-links">
+                    <a href="{% url 'mechanix_entry' %}">MechaniX</a>
+                    <a href="{% url 'my_cars' %}">My Cars</a>
+                    <a href="{% url 'diagnose' %}">Diagnostics</a>
+                    <a href="{% url 'pricing' %}" class="active">Pricing</a>
+                    <a href="{% url 'contact' %}">Contact</a>
+                </div>
+            </div>
+
+            <div class="nav-actions">
+                {% if user.is_authenticated %}
+                    <div class="chip">{{ user.email }}</div>
+                    <a href="{% url 'logout' %}" class="login-btn">Logout</a>
+                {% else %}
+                    <a href="{% url 'register' %}" class="login-btn">Login/Register</a>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="page-header">
+            <h1>Pricing & Transparency</h1>
+            <p>
+                AutoIntel provides estimated part guidance only. Prices shown in the platform should be treated as rough reference values, not fixed quotations.
+            </p>
+        </div>
+
+        <div class="content-grid">
+            <div class="card">
+                <h2>Price Disclaimer</h2>
+                <p>
+                    Car part prices can <span class="highlight">vary significantly</span> depending on the vehicle make, model, year, supplier, region, labour costs, stock availability, and whether parts are original, aftermarket, or refurbished.
+                </p>
+                <p>
+                    For that reason, any prices shown by AutoIntel are intended for educational and planning purposes only. Users should always confirm final pricing with a qualified mechanic, dealership, or parts supplier before purchasing.
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>What Affects Cost?</h2>
+                <ul>
+                    <li>Vehicle brand and trim level</li>
+                    <li>Part availability and supplier pricing</li>
+                    <li>OEM vs aftermarket parts</li>
+                    <li>Labour rates by workshop and region</li>
+                    <li>Import, delivery, and urgent repair costs</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card full-width">
+            <h2>Ethical Considerations</h2>
+            <p>
+                AutoIntel is designed to assist users, not replace professional judgment. AI-generated suggestions may be useful for early guidance, but they should not be treated as guaranteed diagnoses or final repair decisions.
+            </p>
+            <ul>
+                <li>Users should be aware that AI predictions can be wrong or incomplete.</li>
+                <li>Safety-critical vehicle issues should always be checked by a qualified mechanic.</li>
+                <li>Price estimates should not be used to mislead customers or misrepresent true repair costs.</li>
+                <li>Mechanics and users should apply human judgment before acting on recommendations.</li>
+                <li>The platform should be used responsibly, transparently, and with consideration for fairness and trust.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

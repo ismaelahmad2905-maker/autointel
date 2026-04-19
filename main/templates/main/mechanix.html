@@ -1,0 +1,305 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MechaniX Dashboard - AutoIntel</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle at top left, rgba(0,190,255,0.18), transparent 30%),
+                        radial-gradient(circle at top right, rgba(0,150,255,0.14), transparent 30%),
+                        linear-gradient(180deg, #060a12 0%, #070b14 40%, #05070d 100%);
+            color: #e7eefc;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 30px 0 60px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 50px;
+            min-height: 128px;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            min-width: 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .logo {
+            height: 170px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+            background: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-left: 10px;
+        }
+
+        .nav-links a {
+            color: #c9d5ea;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .nav-links a.active,
+        .nav-links a:hover {
+            color: #00beff;
+        }
+
+        .action-btn {
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #00beff, #0078ff);
+            color: #041018;
+            font-weight: bold;
+        }
+
+        .header h1 {
+            margin: 0 0 10px;
+            font-size: 52px;
+        }
+
+        .header p {
+            margin: 0;
+            color: #bfcadd;
+        }
+
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(220px, 1fr));
+            gap: 18px;
+            margin: 28px 0 34px;
+        }
+
+        .summary-card,
+        .chart-card,
+        .recent-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 22px;
+        }
+
+        .summary-label {
+            color: #9cb2cf;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .summary-value {
+            font-size: 34px;
+            font-weight: 900;
+        }
+
+        .chart-card h2,
+        .recent-card h2 {
+            margin-top: 0;
+        }
+
+        .bar-row {
+            display: grid;
+            grid-template-columns: 160px 1fr 50px;
+            align-items: center;
+            gap: 16px;
+            margin: 16px 0;
+        }
+
+        .bar-label {
+            color: #dbe6f7;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .bar-track {
+            height: 16px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.06);
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #00beff, #7b61ff);
+        }
+
+        .bar-count {
+            text-align: right;
+            color: #bfcadd;
+            font-weight: bold;
+        }
+
+        .recent-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .recent-item {
+            padding: 16px 18px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .recent-top {
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .recent-meta {
+            color: #9cb2cf;
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .recent-problem {
+            color: #dce6f5;
+        }
+
+        @media (max-width: 1100px) {
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 18px;
+                min-height: unset;
+            }
+
+            .nav-left {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .nav-links {
+                margin-left: 0;
+            }
+
+            .logo {
+                height: 90px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .summary {
+                grid-template-columns: 1fr;
+            }
+
+            .bar-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .bar-count {
+                text-align: left;
+            }
+
+            .logo {
+                height: 78px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <div class="nav-left">
+                <a href="{% url 'diagnose' %}" class="brand">
+                    <img src="{% static 'main/images/autointel-logo.png' %}" alt="AutoIntel Logo" class="logo">
+                </a>
+
+                <div class="nav-links">
+                    <a href="{% url 'diagnose' %}">Home</a>
+                    <a href="{% url 'my_cars' %}">My Cars</a>
+                    <a href="{% url 'mechanix_dashboard' %}" class="active">MechaniX</a>
+                    <a href="{% url 'pricing' %}">Pricing</a>
+                    <a href="{% url 'contact' %}">Contact</a>
+                </div>
+            </div>
+
+            <a href="{% url 'logout' %}" class="action-btn">Logout</a>
+        </div>
+
+        <div class="header">
+            <h1>MechaniX Dashboard</h1>
+            <p>Review the most common categories you’ve been solving for customers.</p>
+        </div>
+
+        <div class="summary">
+            <div class="summary-card">
+                <div class="summary-label">Total Diagnoses</div>
+                <div class="summary-value">{{ total_jobs }}</div>
+            </div>
+
+            <div class="summary-card">
+                <div class="summary-label">Top Category</div>
+                <div class="summary-value">{{ top_category }}</div>
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <h2>Problem Category Overview</h2>
+
+            {% if chart_data %}
+                {% for item in chart_data %}
+                    <div class="bar-row">
+                        <div class="bar-label">{{ item.category }}</div>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: {{ item.width }}%;"></div>
+                        </div>
+                        <div class="bar-count">{{ item.total }}</div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No mechanic diagnosis data yet.</p>
+            {% endif %}
+        </div>
+
+        <div class="recent-card" style="margin-top: 24px;">
+            <h2>Recent Diagnoses</h2>
+
+            {% if recent_records %}
+                <div class="recent-list">
+                    {% for record in recent_records %}
+                        <div class="recent-item">
+                            <div class="recent-top">{{ record.make }} {{ record.model }} {{ record.year }}</div>
+                            <div class="recent-meta">{{ record.diagnosis|upper }}</div>
+                            <div class="recent-problem">{{ record.problem_text }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>No recent mechanic records yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

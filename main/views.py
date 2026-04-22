@@ -313,7 +313,7 @@ def diagnose_problem(request):
             best_probability = probabilities[best_index]
             predicted_category = classes[best_index]
 
-            if best_probability < 0.55:
+            if best_probability < 0.35:
                 form_error = "We could not confidently understand that issue. Please describe the symptom more clearly."
             else:
                 diagnosis = predicted_category
